@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const SaltRounds = 10;
-const UserModel = mongoose.model('User', UserSchema);
 
 const UserSchema = new mongoose.Schema({
   username: {
@@ -30,7 +29,7 @@ UserSchema.pre("save", function (next) {
   const user = this;
 
   if (user.isModified("password")) {
-    bcrypt.hash(user.password, saltRounds, function (err, hash) {
+    bcrypt.hash(user.password, SaltRounds, function (err, hash) {
       if (err) return next(err);
 
       user.password = hash;
@@ -48,5 +47,5 @@ UserSchema.methods.comparePassword = function (cadidatePassword, cb_function) {
     cb_function(null, res);
   });
 };
-
+const UserModel = mongoose.model('User', UserSchema);
 module.exports = UserModel;

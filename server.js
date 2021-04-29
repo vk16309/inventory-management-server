@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({extended : true}));
 
 const mongoose = require('mongoose');
 const mongoURI = process.env.MONGO_URI || require("./server-config.json").mongoURI || "wont_connect_";
+
 // connect to the database
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
@@ -24,4 +27,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
