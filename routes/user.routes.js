@@ -8,6 +8,7 @@ userRouter.post('/register', controller.register);
 userRouter.get('/', controller.test);
 userRouter.get('/Inventory', inventoryController.get);
 userRouter.post('/Inventory', inventoryController.post);
+userRouter.get('/Inventory/:inventoryId', inventoryController.getById);
 
 
 module.exports = userRouter;

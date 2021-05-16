@@ -2,6 +2,10 @@
 const InventoryModel = require('../models/Inventory.model');
 const CONTROLLER_NAME = 'InventoryController'
 
+const INVENTORY_NOT_FOUND_ERROR = {
+    message: "Inventory not Found"
+}
+
 module.exports = {
     get: function(req,res){
 
@@ -19,6 +23,38 @@ module.exports = {
 
             console.log("Returning from get function in " + CONTROLLER_NAME)
             res.json(result)
+        })
+    },
+
+    getById: function(req,res){
+
+        console.log("Entering in getById function in " + CONTROLLER_NAME)
+
+        InventoryModel
+        .findOne({
+            _id : req.param("inventoryId")
+        })
+        .exec(function(error,inventoryObject){
+
+            if (error){
+                console.log(error)
+                res.status(404).send(error)
+            }
+
+            console.log(inventoryObject)
+
+            if (!inventoryObject || inventoryObject == null){
+
+                console.log("Inventory not found")
+                res.status(404).send(INVENTORY_NOT_FOUND_ERROR)
+            } 
+
+            else{
+
+                console.log("returning from getById function in " + CONTROLLER_NAME)
+                res.json(inventoryObject)
+            }
+            
         })
     },
 
