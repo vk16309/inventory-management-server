@@ -3,6 +3,10 @@ const ProductModel = require('./Product.model');
 
 
 const inventorySchema = new mongoose.Schema({
+    products:[{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'ProductModel'
+    }],
     status: {
       type: String,
       allowNull : true,
