@@ -92,5 +92,15 @@ module.exports = {
             res.json({id : newProduct.id})
 
         })
-    } 
+    },
+
+    postDeleteProduct: function (req,res){
+        const prodId =req.body.productId;
+        ProductModel.findByIdAndRemove(prodId)
+            .then(()=>{
+                console.log('PRODUCT DELETED');
+            })
+            .catch(err=> console.log(err));
+
+    }
 }
