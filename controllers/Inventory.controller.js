@@ -98,7 +98,33 @@ module.exports = {
             .catch(err=> console.log(err));
             
 
-    }
+    },
+    patch: function (req,res){
+        const invenId =req.param("inventoryId")//req.body.inventoryId;
+        console.log(invenId)
+
+        var inventoryObject = {}
+        if (req.body.name)
+            inventoryObject.name = req.body.name
+        if (req.body.status)
+            inventoryObject.status = req.body.status
+        if(req.body.type)
+            inventoryObject.type = req.body.type
+        
+        InventoryModel.findByIdAndUpdate(invenId ,inventoryObject,
+                            function (err, inv) {
+                                if (err){
+                                    console.log(err)
+                                }
+                                else{
+                                    console.log("Updated Inventory : ", inv);
+                                
+                                }
+                            })
+         
+            
+
+    },
 
 
 }
