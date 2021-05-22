@@ -86,4 +86,15 @@ module.exports = {
 
         })
     } 
+/*
+    delete: function (req,res){
+        const invenId =req.body.inventoryId;
+        InventoryModel.findByIdAndRemove(invenId)
+            .then(()=>{
+                console.log('Inventory DELETED');
+            })
+            .catch(err=> console.log(err));
+
+    }
+    */
 }

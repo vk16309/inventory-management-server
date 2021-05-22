@@ -93,8 +93,8 @@ module.exports = {
 
         })
     },
-
-    postDeleteProduct: function (req,res){
+/*
+    delete: function (req,res){
         const prodId =req.body.productId;
         ProductModel.findByIdAndRemove(prodId)
             .then(()=>{
@@ -103,4 +103,5 @@ module.exports = {
             .catch(err=> console.log(err));
 
     }
+    */
 }
