@@ -118,16 +118,16 @@ module.exports = {
         if(req.body.type)
             prodObject.type = req.body.type
         
-        ProductModel.findByIdAndUpdate(prodId ,prodObject,
-                            function (err, prod) {
-                                if (err){
-                                    console.log(err)
-                                }
-                                else{
-                                    console.log("Updated Inventory : ", prod);
-                                
-                                }
-                            })
+        ProductModel.findByIdAndUpdate(prodId ,prodObject).then((prod)=>{
+
+
+            console.log("Updated Product : ", prod);
+        })
+        .catch({
+                console.log(err)
+        })
+                          
+                          
          
             
 

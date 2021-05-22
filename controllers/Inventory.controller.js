@@ -111,16 +111,15 @@ module.exports = {
         if(req.body.type)
             inventoryObject.type = req.body.type
         
-        InventoryModel.findByIdAndUpdate(invenId ,inventoryObject,
-                            function (err, inv) {
-                                if (err){
-                                    console.log(err)
-                                }
-                                else{
-                                    console.log("Updated Inventory : ", inv);
-                                
-                                }
-                            })
+        InventoryModel.findByIdAndUpdate(invenId ,inventoryObject).then((inv)=>{
+
+
+            console.log("Updated Inventory : ", inv);
+        })
+        .catch({
+                console.log(err)
+        })
+                          
          
             
 
