@@ -11,13 +11,13 @@ userRouter.get('/', controller.test);
 userRouter.get('/Inventory', inventoryController.get);
 userRouter.post('/Inventory', inventoryController.post);
 userRouter.get('/Inventory/:inventoryId', inventoryController.getById);
-//userRouter.delete('/Inventory/:inventoryId', inventoryController.delete);
+userRouter.delete('/Inventory/:inventoryId', inventoryController.delete);
 //userRouter.get('/Inventory/:inventoryId', inventoryController.getById);
 
 userRouter.get('/Product', productController.get);
 userRouter.post('/Product', productController.post);
 userRouter.get('/Product/:productId', productController.getById);
-//userRouter.delete('/Product/:productId', productController.delete);
+userRouter.delete('/Product/:productId', productController.delete);
 
 
 module.exports = userRouter;

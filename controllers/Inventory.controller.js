@@ -85,16 +85,20 @@ module.exports = {
             res.json({id : newInventory.id})
 
         })
-    } 
-/*
+    } ,
+
     delete: function (req,res){
-        const invenId =req.body.inventoryId;
+        const invenId =req.param("inventoryId")//req.body.inventoryId;
+        console.log(invenId)
+        
         InventoryModel.findByIdAndRemove(invenId)
             .then(()=>{
                 console.log('Inventory DELETED');
             })
             .catch(err=> console.log(err));
+            
 
     }
-    */
+
+
 }

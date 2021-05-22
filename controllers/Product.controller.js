@@ -93,15 +93,17 @@ module.exports = {
 
         })
     },
-/*
+
     delete: function (req,res){
-        const prodId =req.body.productId;
-        ProductModel.findByIdAndRemove(prodId)
+        const prodId =req.param("productId");
+        console.log(prodId)
+       /* ProductModel.findByIdAndRemove(prodId)
             .then(()=>{
                 console.log('PRODUCT DELETED');
             })
             .catch(err=> console.log(err));
+            */
 
     }
-    */
+    
 }
