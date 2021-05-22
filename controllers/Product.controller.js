@@ -97,12 +97,12 @@ module.exports = {
     delete: function (req,res){
         const prodId =req.param("productId");
         console.log(prodId)
-       /* ProductModel.findByIdAndRemove(prodId)
+       ProductModel.findByIdAndRemove(prodId)
             .then(()=>{
                 console.log('PRODUCT DELETED');
             })
             .catch(err=> console.log(err));
-            */
+            
 
     },
 
