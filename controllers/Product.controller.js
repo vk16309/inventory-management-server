@@ -118,14 +118,12 @@ module.exports = {
         if(req.body.type)
             prodObject.type = req.body.type
         
-        ProductModel.findByIdAndUpdate(prodId ,prodObject).then((prod)=>{
+        ProductModel.findByIdAndUpdate(prodId ,prodObject).then(()=>{
 
 
             console.log("Updated Product : ", prod);
         })
-        .catch({
-                console.log(err)
-        })
+        .catch((err)=> console.log(err))
                           
                           
          
