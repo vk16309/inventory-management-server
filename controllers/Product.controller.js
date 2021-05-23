@@ -2,7 +2,7 @@
 const ProductModel = require('../models/Product.model');
 const CONTROLLER_NAME = 'ProductController'
 
-const Product_NOT_FOUND_ERROR = {
+const PRODUCT_NOT_FOUND_ERROR = {
     message: "Product not Found"
 }
 
@@ -58,6 +58,8 @@ module.exports = {
         })
     },
 
+
+
     post: function(req,res){
 
         console.log("Entering post function in " + CONTROLLER_NAME)
@@ -102,7 +104,7 @@ module.exports = {
                 console.log('PRODUCT DELETED');
                  res.json({"id":prodId})
             })
-            .catch(()=>{
+            .catch((err)=>{
                  console.log(err)
             res.json({"error":err})
         
