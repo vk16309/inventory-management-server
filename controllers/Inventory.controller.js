@@ -96,7 +96,7 @@ module.exports = {
                 console.log('Inventory DELETED');
                   res.json({'id':invenId})
             })
-            .catch( err=>
+            .catch(( err)=>
                 {console.log(err)
             res.json({"error":err})
         });
