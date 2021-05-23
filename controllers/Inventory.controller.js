@@ -94,8 +94,12 @@ module.exports = {
         InventoryModel.findByIdAndRemove(invenId)
             .then(()=>{
                 console.log('Inventory DELETED');
+                  res.json({'id':invenId})
             })
-            .catch(err=> console.log(err));
+            .catch( err=>
+                {console.log(err)
+            res.json({"error":err})
+        });
             
 
     },
@@ -114,9 +118,15 @@ module.exports = {
         InventoryModel.findByIdAndUpdate(invenId ,inventoryObject).then(()=>{
 
 
-            console.log("Updated Inventory : ");
+            console.log("Updated Inventory : ",inventoryObject);
+            res.json({'id':invenId})
         })
-        .catch(err=>console.log(err))
+        .catch((err)=>
+        {
+            console.log(err)
+            res.json({"error":err})
+        }
+        )
                           
          
             

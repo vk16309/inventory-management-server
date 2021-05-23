@@ -20,7 +20,7 @@ module.exports = {
                 console.log(error)
                 res.json(error)
             }
-
+            console.log(result)
             console.log("Returning from get function in " + CONTROLLER_NAME)
             res.json(result)
         })
@@ -100,8 +100,13 @@ module.exports = {
        ProductModel.findByIdAndRemove(prodId)
             .then(()=>{
                 console.log('PRODUCT DELETED');
+                 res.json({"id":prodId})
             })
-            .catch(err=> console.log(err));
+            .catch(()=>{
+                 console.log(err)
+            res.json({"error":err})
+        
+            });
             
 
     },
@@ -113,17 +118,25 @@ module.exports = {
         var prodObject = {}
         if (req.body.name)
             prodObject.name = req.body.name
-        if (req.body.status)
-            prodObject.status = req.body.status
-        if(req.body.type)
-            prodObject.type = req.body.type
+        if (req.body.quantity)
+            prodObject.quantity = req.body.quantity
+        if(req.body.price)
+            prodObject.price = req.body.price
+        if(req.body.currentInventory)
+            prodObject.currentInventory = req.body.currentInventory
         
         ProductModel.findByIdAndUpdate(prodId ,prodObject).then(()=>{
 
 
-            console.log("Updated Product : ", prod);
+            console.log("Updated Product : ",prodObject);
+            res.json({"id":prodId})
+
         })
-        .catch((err)=> console.log(err))
+        .catch((err)=>{ 
+
+            console.log(err)
+            res.json({"error":err})
+        })
                           
                           
          
