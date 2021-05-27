@@ -111,13 +111,13 @@ module.exports = {
         console.log("Entering post function in " + CONTROLLER_NAME)
         console.log(req.body)
          // Check for a JWT token in the header
-        if(!req.body.token) {
+        if(!req.header('authorization')) {
            // sails.log.error('Authorization header not provided')
             return res.status(401).send(AUTHORIZATION_HEADER_ERROR)
         }
 
         // If one exists, attempt to get the header data
-        let token = req.body.token.split('Bearer ')[1]
+        let token = req.header('authorization').split('Bearer ')[1]
         console.log(token)
         // If there's nothing after "Bearer", send an error
         if(!token) {
