@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const ProductModel = require('./Product.model');
+const UserModel = require('./user.model');
 
 
 const inventorySchema = new mongoose.Schema({
@@ -15,6 +16,10 @@ const inventorySchema = new mongoose.Schema({
         message: '{VALUE} is not supported'
       },
       default : "active"
+    },
+    currentUser: {
+      type : mongoose.Schema.Types.ObjectId,
+      ref: 'UserModel'
     },
     name: {
       type: String,

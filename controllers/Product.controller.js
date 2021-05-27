@@ -70,11 +70,13 @@ module.exports = {
         if (req.body.status)
             productObject.status = req.body.status
         if (req.body.description)
-            productObject.description=re1.body.description
+            productObject.description=req.body.description
         if (req.body.quantity)
             productObject.quantity=req.body.quantity
         if (req.body.price)
             productObject.price=req.body.price
+        if (req.body.id)
+            productObject.currentInventory=req.body.id
             
         
         
@@ -124,8 +126,8 @@ module.exports = {
             prodObject.quantity = req.body.quantity
         if(req.body.price)
             prodObject.price = req.body.price
-        if(req.body.currentInventory)
-            prodObject.currentInventory = req.body.currentInventory
+        if(req.body.id)
+            prodObject.currentInventory = req.body.id
         
         ProductModel.findByIdAndUpdate(prodId ,prodObject).then(()=>{
 
