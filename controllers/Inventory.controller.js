@@ -186,8 +186,8 @@ module.exports = {
             inventoryObject.status = req.body.status
         if(req.body.type)
             inventoryObject.type = req.body.type
-        if(req.body.userid)
-            inventoryObject.currentUser = req.body.userid
+       // if(req.body.userid)
+         //   inventoryObject.currentUser = req.body.userid
         
         InventoryModel.findByIdAndUpdate(invenId ,inventoryObject).then(()=>{
 
