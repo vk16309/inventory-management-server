@@ -13,47 +13,6 @@ const INVENTORY_NOT_FOUND_ERROR = {
 }
 
 module.exports = {
-/*
-     get: function(req,res){
-
-        console.log("Entering get function in " + CONTROLLER_NAME)
-        
-        // Check for a JWT token in the header
-        if(!req.header('authorization')) {
-           // sails.log.error('Authorization header not provided')
-            return res.status(401).send(AUTHORIZATION_HEADER_ERROR)
-        }
-
-        // If one exists, attempt to get the header data
-        let token = req.header('authorization').split('Bearer ')[1]
-        console.log(token)
-        // If there's nothing after "Bearer", send an error
-        if(!token) {
-            sails.log.error('JWT token not provided in the authorization header')
-            return res.status(401).send(AUTHORIZATION_HEADER_ERROR)
-        }
-
-        getUserId(token,function(id){
-            console.log(id)
-            console.log('DB Query to find Inventory')
-            InventoryModel
-            .find()
-            .exec(function(error,result){
-            
-                if (error){
-                    console.log(error)
-                    res.json(error)
-                }
-
-                console.log("Returning from get function in " + CONTROLLER_NAME)
-                res.json(result)
-            })
-        })
-
-        
-    },
-
-*/
 
     get: function(req,res){
 
