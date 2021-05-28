@@ -1,0 +1,4 @@
+{
+  "mongoURI" : "mongodb+srv://mynk:2QK7lx4zioOW8BK1@mynkcluster1.uby7z.mongodb.net/inventory-management?retryWrites=true&w=majority",
+  "server_secret" : "xkcdxycdsecret"
+}

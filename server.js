@@ -16,6 +16,18 @@ mongoose.connect(mongoURI, {
 }).catch(err => console.log(err));
 
 const userRouter = require('./routes/user.routes');
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+  );
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
 app.use('/user', userRouter);
 
 
